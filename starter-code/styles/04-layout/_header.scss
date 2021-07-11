@@ -1,0 +1,24 @@
+header {
+    position: relative;
+    width: 87%;
+    margin: 2rem auto 2.5rem;
+
+}
+
+.brand {
+    width: 50%;
+    & img {
+        max-width: 100%;
+    }    
+}
+
+.toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.hamburger-open {
+    display: block;
+}

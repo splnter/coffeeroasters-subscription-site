@@ -1,0 +1,41 @@
+@use '../01-abstracts/variables';
+
+.coffee-collection {
+    margin-bottom: 8.75rem; 
+    & h2 {
+    color: variables.$grey;
+    position: relative;
+    padding: 1.55rem 0;
+    margin-bottom: 0.625rem;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-image: linear-gradient(hsla(43, 78%, 98%, 0.01%), variables.$light-cream);
+        }
+    }        
+}
+
+.sort {
+    height: 17.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    & img {
+        width: 70%;
+    }
+    &:not(:last-of-type) {
+        margin-bottom: 4rem;
+    }
+}
+
+.sort-description {
+    text-align: center;
+    & h4 {
+        margin-bottom: 0.9375rem;
+    }
+}

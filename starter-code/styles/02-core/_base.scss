@@ -1,0 +1,33 @@
+@use '../01-abstracts/variables';
+
+.heading-sm,
+.heading-md,
+.heading-lg {
+    font-family: 'Fraunces', serif;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
+.heading-lg {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.heading-md {
+   font-size:  1.75rem; 
+}
+
+.heading-sm {
+    font-size: 1.5rem;
+    line-height: 2;
+}
+
+p {
+    line-height: 1.66;
+}
+
+body {
+    background-color: variables.$light-cream;
+}
