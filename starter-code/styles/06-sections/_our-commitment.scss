@@ -1,0 +1,18 @@
+@use '../01-abstracts/variables';
+
+.our-commitment {
+    text-align: center;
+    margin-bottom: 12.2rem;
+    & img {
+        max-width: 100%;
+        border-radius: 0.5rem;
+        margin-bottom: 3rem;
+    }& h2 {
+        margin-bottom: 1.875rem;
+    }& p {
+        color: variables.$dark-grey-blue;
+        opacity: 0.8;
+        font-size: 0.9375rem;
+    }
+}
+
