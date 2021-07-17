@@ -2,10 +2,10 @@
 @use '02-core/normalize.scss';
 @use '02-core/base';
 @use '03-components/buttons';
+@use '03-components/modal';
 @use '04-layout/header';
 @use '04-layout/footer';
 @use '04-layout/navigation';
-@use '04-layout/main';
 @use '04-layout/container';
 @use '06-sections/hero';
 @use '06-sections/collections';
@@ -14,3 +14,6 @@
 @use '06-sections/_our-commitment';
 @use '06-sections/our-quality';
 @use '06-sections/headquarters';
+@use '06-sections/plan';
+@use '06-sections/select-your-coffee';
+@use '06-sections/order-summary';

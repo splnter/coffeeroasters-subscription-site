@@ -1,0 +1,63 @@
+@use '../01-abstracts/variables';
+
+.select-your-coffee {
+    margin-bottom: 7.5rem;
+}
+
+.accordion-wrapper.open img {
+    transform: translateY(-50%) rotate(180deg)
+}
+
+.accordion-wrapper:not(:last-of-type) {
+    margin-bottom: 1rem;
+    &.open {
+        margin-bottom: 5rem;
+    }
+    /* margin-bottom: 5rem; */
+}
+
+.accordion {
+    position: relative;
+    & span {
+        max-width: 70%;
+        display: inline-block;
+        line-height: 1.16;
+        color: variables.$grey;
+    }& img {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.2s ease-out;
+    }
+}
+
+.options-panel {
+    /* padding-top: 2rem; */
+    max-height: 0;
+    overflow: hidden; 
+    transition: max-height 0.2s ease-out; 
+    &.open {
+        max-height: 100%;
+        overflow: unset;
+        padding-top: 2rem;
+    }
+}
+
+
+.option {
+    padding: 1.5rem;
+    background-color: variables.$cream;
+    color: variables.$dark-grey-blue;
+    border-radius: 0.5rem;
+    &:not(:last-of-type) {
+        margin-bottom: 1rem;
+    }& span {
+        display: inline-block;
+    }&.selected {
+        background-color: variables.$dark-cyan;
+        color: variables.$white;
+    }& .description {
+        line-height: 1.625rem;
+    }
+}

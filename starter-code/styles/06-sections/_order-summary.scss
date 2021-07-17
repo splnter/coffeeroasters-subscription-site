@@ -1,0 +1,33 @@
+@use '../01-abstracts/variables';
+
+.box {
+    background-color: variables.$dark-grey;
+    border-radius: 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.order-summary .tag {
+    color: variables.$grey;
+    text-transform: uppercase;
+    line-height: 1.625rem;
+}
+
+.order {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    margin-top: 0.5rem;
+    color: variables.$white;
+}
+
+.order-summary .btn {
+    margin-top: 3.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.text-cyan {
+    color: variables.$dark-cyan;
+}
