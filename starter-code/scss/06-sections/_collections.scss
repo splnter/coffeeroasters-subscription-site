@@ -40,3 +40,28 @@
         margin-bottom: 0.9375rem;
     }
 }
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .coffee-collection .heading-lg {
+        font-size: 6rem;
+    }
+    .coffee-collection .container {
+        width: 100%;
+        position: relative;
+    }
+    .sort {
+        flex-direction: row;
+        &-description {
+            text-align: left;
+            margin-bottom: 3rem;
+            max-width: 32ch;
+        }
+    }
+    .coffee-sorts {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+        margin-top: -4rem;
+        position: relative;
+        z-index: 2;
+    }
+}

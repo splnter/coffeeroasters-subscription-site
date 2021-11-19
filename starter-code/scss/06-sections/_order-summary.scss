@@ -13,7 +13,7 @@
     line-height: 1.625rem;
 }
 
-.order {
+.order-description {
     font-family: 'Fraunces', serif;
     font-size: 1.5rem;
     line-height: 2.5rem;
@@ -30,4 +30,17 @@
 
 .text-cyan {
     color: variables.$dark-cyan;
+    &::after {
+        content: '';
+        display: inline-block;
+        height: 2px;
+        width: 4ch;
+        background-color: variables.$dark-cyan;
+        margin-right: 0.5ch;
+    }&.hidePlaceHolder::after {
+        opacity: 0;
+        display: inline;
+        margin-right: 0;
+    }
 }
+

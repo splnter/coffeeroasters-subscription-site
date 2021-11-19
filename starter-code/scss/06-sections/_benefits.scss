@@ -52,3 +52,27 @@
         }
     }
 }
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: unset;
+        padding: 2.5rem;
+        & .card-wrapper {
+            text-align: left;
+            width: 74%;
+            margin-top: unset;
+        }
+    }
+    .background {
+        height: 37rem;
+        & .container {
+            width: 73%;
+        }
+    }
+    .cards {
+        top: 45%;
+    }
+}

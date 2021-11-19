@@ -3,7 +3,9 @@
 .our-quality {
     position: relative;
     text-align: center;
-    background-color: variables.$dark-grey;
+    background-image: url(/starter-code/assets/about/mobile/bg-quality.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     color: variables.$light-cream;
     border-radius: 0.5rem;
     padding-bottom: 3.75rem;
@@ -18,5 +20,11 @@
         opacity: 0.8;
     }& h3 {
         margin-bottom: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .our-quality {
+        background-image: url(/starter-code/assets/about/tablet/bg-quality.png);
     }
 }

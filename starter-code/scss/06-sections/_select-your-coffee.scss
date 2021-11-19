@@ -4,16 +4,16 @@
     margin-bottom: 7.5rem;
 }
 
-.accordion-wrapper.open img {
+.accordion.accordionActive img {
     transform: translateY(-50%) rotate(180deg)
 }
 
 .accordion-wrapper:not(:last-of-type) {
     margin-bottom: 1rem;
-    &.open {
-        margin-bottom: 5rem;
-    }
-    /* margin-bottom: 5rem; */
+}
+
+.accordion-wrapper.accordionActive:not(:last-of-type) {
+    margin-bottom: 5rem;
 }
 
 .accordion {
@@ -29,19 +29,17 @@
         top: 50%;
         transform: translateY(-50%);
         transition: all 0.2s ease-out;
+    }&.accordionActive {
+        max-height: 100%;
+        overflow: unset;
+        margin-bottom: 2rem;
     }
 }
 
 .options-panel {
-    /* padding-top: 2rem; */
     max-height: 0;
     overflow: hidden; 
     transition: max-height 0.2s ease-out; 
-    &.open {
-        max-height: 100%;
-        overflow: unset;
-        padding-top: 2rem;
-    }
 }
 
 
@@ -59,5 +57,24 @@
         color: variables.$white;
     }& .description {
         line-height: 1.625rem;
+    }
+}
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .accordion .heading-sm {
+        font-size: 2rem;
+        white-space: nowrap;
+    }
+    .options-panel {
+        display: flex;
+        justify-content: space-between;
+        & .option {
+           height: 15.5rem;
+           flex-basis: 0;
+           flex-grow: 1;
+           margin-right: 0.5rem;
+        }& .description {
+            margin-top: 2rem;
+        }
     }
 }

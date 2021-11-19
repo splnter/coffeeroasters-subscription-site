@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Fraunces:wght@900&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
   <title>Frontend Mentor | Coffeeroasters subscription site</title>
 </head>
 
@@ -18,13 +18,13 @@
     </div>
     <nav class="main-navigation">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Create Your Plan</a></li>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="./plan.html">Create Your Plan</a></li>
       </ul>
     </nav>
     <div class="toggle">
-      <img src="./assets/shared/mobile/icon-hamburger.svg" alt="open the mobile menu" class="hamburger-open">
+      <img src="./assets/shared/mobile/icon-hamburger.svg" alt="open the mobile menu" class="hamburger-open mobile-nav-open">
       <img src="./assets/shared/mobile/icon-close.svg" alt="close the mobile menu" class="hamburger-close">
     </div>
   </header> 
@@ -34,9 +34,9 @@
     <div class="container-outer">
 
     <!-- Hero Section START -->
-      <section class="hero hero-sm hero-about">
+      <section class="hero hero-sm hero-plan">
         <div class="container">
-          <h1 class="heading-md">Create a plan</h1>
+          <h1 class="heading-lg">Create a plan</h1>
           <p class="intro-text">Build a subscription plan that best fits your needs. We offer an assortment of the best 
             artisan coffees from around the globe delivered fresh to your door.</p>
         </div>
@@ -47,6 +47,7 @@
 
     <!-- Plan Section START -->
     <section class="plan">
+      <div class="circle-steps"></div>
         <div class="steps">
           <div class="step">
             <span class="number">01</span>
@@ -74,106 +75,111 @@
     <div class="container-outer">
       <!-- Select Your Coffee Section START -->
       <section class="select-your-coffee ">
-        <div class="accordion-wrapper open">
+        <div class="accordion-wrapper">
           <div class="accordion">
             <span class="heading-sm">How do you drink your coffee?</span>
             <img src="./assets/plan/desktop/icon-arrow.svg" alt="">
           </div>
-          <div class="options-panel open">
-            <div class="option">
+          <div class="options-panel">
+            <div class="option"  data-option-selected="preference">
               <span class="heading-sm">Capsule</span>
               <span class="description">Compatible with Nespresso systems and similar brewers</span>
             </div>
-            <div class="option selected">
+            <div class="option" data-option-selected="preference">
               <span class="heading-sm">Filter</span>
               <span class="description">For pour over or drip methods like Aeropress, Chemex, and V60</span>
             </div>
-            <div class="option">
+            <div class="option" data-option-selected="preference">
               <span class="heading-sm">Espresso</span>
               <span class="description">Dense and finely ground beans for an intense, flavorful experience</span>
             </div>
           </div>
         </div>
+
         <div class="accordion-wrapper">
           <div class="accordion">
             <span class="heading-sm"> What type of coffee?<span>
             <img src="./assets/plan/desktop/icon-arrow.svg" alt="">
           </div>
           <div class="options-panel">
-            <div class="option">
+            <div class="option" data-option-selected="beanType">
               <span class="heading-sm">Single origin</span>
               <span class="description">Distinct, high quality coffee from a specific family-owned farm</span>
             </div>
-            <div class="option selected">
+            <div class="option" data-option-selected="beanType">
               <span class="heading-sm">Decaf</span>
               <span class="description">Just like regular coffee, except the caffeine has been removed</span>
             </div>
-            <div class="option">
+            <div class="option" data-option-selected="beanType">
               <span class="heading-sm">Blended</span>
               <span class="description">Combination of two or three dark roasted beans of organic coffees</span>
             </div>
           </div>
         </div>
-        <div class="accordion-wrapper open">
+
+        <div class="accordion-wrapper">
           <div class="accordion">
             <span class="heading-sm">How much would you like?<span>
             <img src="./assets/plan/desktop/icon-arrow.svg" alt="">
           </div>
-          <div class="options-panel open">
-            <div class="option selected">
+          <div class="options-panel">
+            <div class="option quantity" data-option-selected="quantity">
               <span class="heading-sm">250g</span>
               <span class="description">Perfect for the solo drinker. Yields about 12 delicious cups.</span>
             </div>
-            <div class="option">
+            <div class="option quantity" data-option-selected="quantity">
               <span class="heading-sm">500g</span>
               <span class="description">Perfect option for a couple. Yields about 40 delectable cups.</span>
             </div>
-            <div class="option">
+            <div class="option quantity" data-option-selected="quantity">
               <span class="heading-sm">1000g</span>
               <span class="description">Perfect for offices and events. Yields about 90 delightful cups.</span>
             </div>
           </div>
         </div>
+
         <div class="accordion-wrapper">
           <div class="accordion">
-            <span class="heading-sm">Want us to grind them?<span>
+            <span id="grindHeading" class="heading-sm">Want us to grind them?<span>
             <img src="./assets/plan/desktop/icon-arrow.svg" alt="">
           </div>
           <div class="options-panel">
-            <div class="option">
+            <div class="option" data-option-selected="grindOption">
               <span class="heading-sm">Wholebean</span>
               <span class="description">Best choice if you cherish the full sensory experience</span>
             </div>
-            <div class="option">
+            <div class="option" data-option-selected="grindOption">
               <span class="heading-sm">Filter</span>
               <span class="description">For drip or pour-over coffee methods such as V60 or Aeropress</span>
             </div>
-            <div class="option selected">
+            <div class="option" data-option-selected="grindOption">
               <span class="heading-sm">Cafetiére</span>
               <span class="description">Course ground beans specially suited for french press coffee</span>
             </div>
           </div>
         </div>
+
         <div class="accordion-wrapper">
           <div class="accordion">
             <span class="heading-sm">How often should we deliver?<span>
             <img src="./assets/plan/desktop/icon-arrow.svg" alt="">
           </div>
           <div class="options-panel">
-            <div class="option selected class="description"">
+            <div class="option frequency" data-option-selected="frequency">
               <span class="heading-sm">Every week</span>
-              <span class="description">$<span id="pricePerWeek">14.00</span> per shipment. Includes free first-class shipping.</span>
+              <span class="description">$<span class="price" id="pricePerWeek">14.00</span> per shipment. Includes free first-class shipping.</span>
             </div>
-            <div class="option">
+            <div class="option frequency" data-option-selected="frequency">
               <span class="heading-sm">Every 2 weeks</span>
-              <span class="description">$<span id="pricePerTwoWeeks">17.25</span> per shipment. Includes free priority shipping.</span>
+              <span class="description">$<span class="price" id="pricePerTwoWeeks">17.25</span> per shipment. Includes free priority shipping.</span>
             </div>
-            <div class="option">
+            <div class="option frequency" data-option-selected="frequency">
               <span class="heading-sm">Every month</span>
-              <span class="description">$<span id="pricePerMonth">22.50</span> per shipment. Includes free priority shipping.</span>
+              <span class="description">$<span class="price" id="pricePerMonth">22.50</span> per shipment. Includes free priority shipping.</span>
             </div>
           </div>
         </div>
+
       </section>
       <!-- Select Your Coffee Section END -->
 
@@ -182,10 +188,10 @@
         <div class="box">
           <div class="container">
             <span class="tag">order summary</span>
-            <p class="order">“I drink my coffee as <span id="preference" class="text-cyan">Filter</span>, with a <span id="beanType" class="text-cyan">Decaf </span>type of bean.<span  id="quantity" class="text-cyan"> 250g </span>ground ala <span id="grindOption" class="text-cyan">Cafetiére</span>, sent to me <span id="deliveries" class="text-cyan">Every Week.</span>"</p>
+            <p id="order-description" class="order-description">"I drink my coffee <span id="asOrUsing">as </span><span id="preference" class="text-cyan"></span>, with a <span id="beanType" class="text-cyan"></span> type of bean. <span id="quantity" class="text-cyan"></span><span id="hideGrindOption"> ground ala <span id="grindOption" class="text-cyan"></span></span>, sent to me <span id="frequency" class="text-cyan"></span>."</p>
           </div>
         </div>
-        <button class="btn">Create your plan</button>
+        <button id="btn-order"class="btn">Create your plan</button>
       </section>
       <!-- Order Summary Section END -->
 
@@ -195,14 +201,19 @@
           <div class="modal-content">
             <span class="heading-md">Order Summary</span>
             <div class="modal-wrapper">
-              <p class="order">“I drink my coffee as <span id="preference" class="text-cyan">Filter</span>, with a <span id="beanType" class="text-cyan">Decaf </span>type of bean.<span  id="quantity" class="text-cyan"> 250g </span>ground ala <span id="grindOption" class="text-cyan">Cafetiére</span>, sent to me <span id="deliveries" class="text-cyan">Every Week.</span>"</p>
+              <p id="orderMessage" class="modal-order-description"></p>
               <p class="text">Is this correct? You can proceed to checkout or go back to plan selection if something
                 is off. Subscription discount codes can also be redeemed at the checkout.</p>
-              <button class="btn" id="checkout">Checkout - $14.00 / mo</button>
+              <div id="button-wrapper" class="button-wrapper">
+                <!--<p class="order-price">$14.00 / mo</p>
+                <button class="btn" id="checkout">Checkout</button>-->
+                <!-- <button class="btn" id="checkout">Checkout - $<span id="modal-price">14.00</span> / mo</button> -->
+              </div>
             </div>           
           </div>
         </div>
       </div>
+      <!-- Modal END -->
 
     </div>
     </main>
@@ -224,6 +235,10 @@
     </footer>
     <!-- Footer END -->
 
+    <script src="scripts.js"></script>
+
 </body>
 
 </html>
+
+<!-- <p class="order-description">"I drink my coffee <span id="drink-style">as</span><span id="preference" class="text-cyan">Filter</span>, with a<span id="type" class="text-cyan">Decaf</span>type of bean.<span id="type" class="text-cyan">250g</span><span id="remove">ground ala <span id="type" class="text-cyan">Cafetiére</span></span>,sent to me <span id="type" class="text-cyan">Every Week</span></p> -->

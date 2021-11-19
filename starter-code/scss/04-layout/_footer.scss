@@ -41,4 +41,26 @@
     width: 7.5rem;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .footer-nav ul {
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        & li {
+            margin-bottom: unset!important;
+        }
+    }
+    .footer-nav {
+        width: 60%;
+        text-align: center;
+    }
+    .social-media-links {
+        margin-top: 5rem;
+    }
+    .footer {
+        height: 18.9rem;
+    }
 }

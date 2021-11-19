@@ -11,4 +11,9 @@
     font-family: 'Fraunces', serif;
     font-size: 1.125rem;
     cursor: pointer;
+    & a {
+        color: variables.$light-cream;
+        text-decoration: none;
+        cursor: pointer;  
+    }
 }

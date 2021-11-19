@@ -27,3 +27,20 @@
         margin-bottom: 1.25rem;
     }
 }
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .headquarters {
+        align-items: flex-start;
+    }
+    .offices {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .office {
+        text-align: left;
+        & h5 {
+            font-size: 1.5rem;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+@use '../01-abstracts/variables';
+
+.hero {
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 10px; 
+    margin-bottom: 7.5rem;
+    padding-top: 2.25rem; 
+    border: 5px soild red;    
+    
+    &-lg {
+        height: 31.25rem;
+    }&-sm {
+        height: 25rem;
+    }&-home {
+        background-image: url(/starter-code/assets/home/mobile/image-hero-coffeepress.jpg);
+    }&-about {
+        background-image: url(/starter-code/assets/about/mobile/image-hero-whitecup.jpg);
+    }& .container {
+        display: flex;
+        flex-direction: column;
+    }&-plan {
+        background-image: url(/starter-code/assets/plan/mobile/image-hero-blackcup.jpg);
+    } 
+    & h1 {
+        color: variables.$light-cream;
+        margin-bottom: 1.5rem;
+    }
+    & p {
+        color: variables.$light-cream;
+        font-size: 0.9375rem;
+        opacity: 0.8;
+        margin-bottom: 2.5rem;
+    }    
+}
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .hero {
+        text-align: left;    
+        align-items: center;
+        padding-top: 0;
+        & .container {
+            width: 60%;
+            margin-left: 3rem;
+
+
+        }& .btn {
+            margin-left: 0;
+        }& .heading-lg {
+            font-size: 3rem;
+        }&-home {
+            background-image: url(/starter-code/assets/home/tablet/image-hero-coffeepress.jpg);
+        }&-about {
+            background-image: url(/starter-code/assets/about/tablet/image-hero-whitecup.jpg);
+            & .heading-md {
+                font-size: 2rem;
+            }
+        }&-plan {
+            background-image: url(/starter-code/assets/plan/tablet/image-hero-blackcup.jpg);
+            & .container {
+                padding-right: 1rem;
+            }
+        }
+    }
+}
+

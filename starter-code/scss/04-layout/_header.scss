@@ -18,6 +18,8 @@ header {
     top: 50%;
     right: 6.5%;
     transform: translateY(-50%);
+    width: 15px;
+    height: 16px;
 }
 
 .hamburger-open {
@@ -26,6 +28,7 @@ header {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
+    transition: all 0.4s ease-in-out;
     opacity: 0;
 }
 
@@ -34,9 +37,22 @@ header {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
+    transition: all 0.4s ease-in-out;
     opacity: 0;
 }
 
 .mobile-nav-open {
     opacity: 1;
 }
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 4.75%;
+        padding-right: 4.75%;
+    }
+    .toggle {
+        display: none;
+    }
+} 
