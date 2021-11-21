@@ -1,0 +1,106 @@
+@use '../01-abstracts/variables';
+
+.benefits {
+    position: relative;
+}
+
+.background {
+    height: 56.25rem;
+    background-color: variables.$dark-grey-blue;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 4rem;
+    & .heading-md {
+        color: variables.$light-cream;
+        margin-bottom: 1.5rem;
+    }
+    & p {
+        font-size: 0.9375rem;
+        color: variables.$light-cream;
+        opacity: 0.8;
+    }
+}
+
+.cards {
+    position: absolute;
+    top: 33%;
+}
+
+.card {
+    height: 23.9rem;
+    width: 86%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 4.5rem;
+    background-color: variables.$dark-cyan;
+    border-radius: 8px;
+    &:not(:last-of-type) {
+        margin-bottom: 1.5rem;
+    }
+    & img {
+        width: 4.5rem;
+    }
+    &-wrapper {
+        width: 80%;
+        color: variables.$light-cream;
+        text-align: center;
+        margin-top: 2.3rem;
+        & h5 {
+            margin-bottom: 1.2rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: unset;
+        padding: 2.5rem;
+        & .card-wrapper {
+            text-align: left;
+            width: 74%;
+            margin-top: unset;
+        }
+    }
+    .background {
+        height: 37rem;
+        & .container {
+            width: 73%;
+        }
+    }
+    .cards {
+        top: 45%;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .benefits .container {
+        max-width: 40%;
+        & .heading-md {
+            font-size: 2.5rem;
+        }
+    }
+    .benefits .cards {
+        display: flex;
+        gap: 2rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        top: 57%;
+
+    } 
+    .benefits .background {
+        height: 28.25rem;
+    }
+    .card-wrapper {
+        width: 75%;
+    }
+    .card {
+        padding-bottom: 3.125rem;
+        justify-content: space-between;
+    }
+  
+}

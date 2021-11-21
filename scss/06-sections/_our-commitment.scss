@@ -1,0 +1,52 @@
+@use '../01-abstracts/variables';
+
+.our-commitment {
+    text-align: center;
+    margin-bottom: 12.2rem;
+    & img {
+        max-width: 100%;
+        border-radius: 0.5rem;
+        margin-bottom: 3rem;
+    }& h2 {
+        margin-bottom: 1.875rem;
+    }& p {
+        color: variables.$dark-grey-blue;
+        opacity: 0.8;
+        font-size: 0.9375rem;
+    }
+}
+
+@media only screen and (min-width: 560px) {
+    .our-commitment {
+        display: flex;
+        flex-direction: row;
+        gap: 4rem;
+        text-align: left;
+        & img {
+            max-width: unset;
+        }& .text {
+            margin-top: 1.5rem;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .our-commitment {
+        padding-left: 5rem;
+        padding-right: 5rem;
+        gap: 7rem;
+        margin-bottom: 14.2rem;
+        & h2 {
+            font-size: 2.5rem;
+        }& p{
+            font-size: 1rem;
+        }& img {
+            margin-bottom: 0;
+        }& .text {
+            align-self: center;
+        }
+    }
+
+}
+

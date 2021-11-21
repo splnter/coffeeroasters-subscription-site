@@ -1,0 +1,94 @@
+@use '../01-abstracts/variables';
+
+.how-it-works {
+    margin-top: 41.8rem;
+    text-align: center;
+    h4 {
+        color: variables.$grey;
+    }    
+}
+
+.steps {
+    margin-top: 3.75rem;
+}
+
+.step {
+    height: 15.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &:not(:last-of-type) {
+        margin-bottom: 3.5rem;
+    }&:last-of-type {
+        margin-bottom: 5rem;
+    }& p {
+        font-size: 0.9375rem;
+    }& .number {
+        font-family: 'Fraunces', serif;
+        font-size: 4.5rem;
+        color: variables.$pale-orange;
+    }
+}
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .how-it-works {
+        margin-top: 30rem;
+        text-align: left;
+        & .btn {
+            margin-top: 7rem;
+        }
+    }
+
+    .steps {
+        margin-top: 2.75rem;
+        display: flex;
+        align-items: flex-start;
+
+    }
+
+    .step {
+        padding-right: 0.95rem;
+    }
+
+    .step > * {
+        margin-bottom: 2rem;
+    }
+
+    .circle-steps {
+        background-image: url(/assets/shared/desktop/circles-tablet.svg);
+        width: 500px;
+        height: 39px;
+        background-repeat: no-repeat;
+        margin-top: 2.125rem;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .how-it-works {
+        margin-top: 25.8rem;
+        text-align: left;
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+
+    .circle-steps {
+        background-image: url(/assets/home/desktop/cicles-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 39px;
+        margin-top: 2.125rem;
+        width: 770px;
+
+    }
+    .steps {
+        display: flex;
+        gap: 6.5rem;
+    }
+    .step {
+        max-width: 23%;
+        height: 21rem;
+        & .heading-md {
+            font-size: 2rem;
+        }
+    }
+}

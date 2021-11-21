@@ -1,0 +1,108 @@
+@use '../01-abstracts/variables';
+
+.footer {
+    height: 21.9rem;
+    margin: 7.5rem 6.6% 4.5rem;
+/*     margin-left: 6.6%;
+    margin-right: 6.6%; */
+    padding-top: 3.375rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: variables.$dark-grey;
+}
+
+.footer-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 0;
+    & li {
+        list-style: none;
+        &:not(:last-of-type) {
+            margin-bottom: 1.5rem;
+        }
+    }& a {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: variables.$grey;
+        font-size: 0.75rem;
+        letter-spacing: 0.92px;
+    }
+}
+
+.typeface {
+    fill: variables.$light-cream;
+}
+
+.social-media-links {
+    margin-top: 3rem;
+    width: 7.5rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+    & svg {
+        fill: #FEFCF7;
+    }
+}
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .footer-nav ul {
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        & li {
+            margin-bottom: unset!important;
+        }
+    }
+    .footer-nav {
+        width: 60%;
+        text-align: center;
+    }
+    .social-media-links {
+        margin-top: 5rem;
+    }
+    .footer {
+        height: 18.9rem;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        height: 6.5rem;
+        padding-top: 0;
+    }
+    .footer-nav {
+        display: flex;
+        width: 58%;
+        justify-content: space-between;
+    }
+    .footer-nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: unset;
+        width: 280px;
+        & li:not(:last-of-type) {
+            margin-bottom: 0;
+        }& a:hover {
+            color: variables.$light-cream;
+        }
+    }
+    .social-media-links {
+        margin-top: 0;
+        & a:hover svg{
+            fill: variables.$pale-orange;
+        }
+    }
+    .footer.plan {
+        margin-top: 28rem;
+    }
+}

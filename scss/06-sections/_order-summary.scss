@@ -1,0 +1,65 @@
+@use '../01-abstracts/variables';
+
+.box {
+    background-color: variables.$dark-grey;
+    border-radius: 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.order-summary .tag {
+    color: variables.$grey;
+    text-transform: uppercase;
+    line-height: 1.625rem;
+}
+
+.order-description {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    margin-top: 0.5rem;
+    color: variables.$white;
+}
+
+.order-summary .btn {
+    margin-top: 3.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.text-cyan {
+    color: variables.$dark-cyan;
+    &::after {
+        content: '';
+        display: inline-block;
+        height: 2px;
+        width: 4ch;
+        background-color: variables.$dark-cyan;
+        margin-right: 0.5ch;
+    }&.hidePlaceHolder::after {
+        opacity: 0;
+        display: inline;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .order-summary {
+        width: calc(65% - 6rem);
+        position: absolute;
+        bottom: -40rem;
+        right: 5rem;
+        margin-bottom: 23rem;
+    }
+
+    .selection.container-outer {
+        position: relative;
+    }
+    .order-summary .btn {
+        margin-top: 3.5rem;
+        display: block;
+        float: right;
+    }
+}
+

@@ -1,0 +1,59 @@
+header {
+    position: relative;
+    margin: 2rem auto 2.5rem;
+    padding-left: 6.5%;
+    padding-right: 6.5%;
+
+}
+
+.brand {
+    width: 50%;
+    & img {
+        max-width: 100%;
+    }    
+}
+
+.toggle {
+    position: absolute;
+    top: 50%;
+    right: 6.5%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 16px;
+}
+
+.hamburger-open {
+    /* display: block; */
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+}
+
+.hamburger-close {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+}
+
+.mobile-nav-open {
+    opacity: 1;
+}
+
+@media only screen and (min-width: 700px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 4.75%;
+        padding-right: 4.75%;
+        margin-bottom: 1.5rem;
+    }
+    .toggle {
+        display: none;
+    }
+} 

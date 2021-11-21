@@ -1,0 +1,23 @@
+@use '../01-abstracts/variables';
+
+.btn {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 20px 30px;
+    color: variables.$light-cream;
+    background-color: variables.$dark-cyan;
+    border-radius: 6px;
+    border: none;
+    font-family: 'Fraunces', serif;
+    font-size: 1.125rem;
+    cursor: pointer;
+    & a {
+        color: variables.$light-cream;
+        text-decoration: none;
+        cursor: pointer;  
+    }
+}
+
+.btn:hover {
+    background-color: variables.$light-cyan;
+}

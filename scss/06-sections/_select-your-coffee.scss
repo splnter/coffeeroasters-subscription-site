@@ -1,0 +1,118 @@
+@use '../01-abstracts/variables';
+
+.select-your-coffee {
+    margin-bottom: 7.5rem;
+}
+
+.accordion.accordionActive img {
+    transform: translateY(-50%) rotate(180deg)
+}
+
+.accordion-wrapper:not(:last-of-type) {
+    margin-bottom: 1rem;
+}
+
+.accordion-wrapper.accordionActive:not(:last-of-type) {
+    margin-bottom: 5rem;
+}
+
+.accordion {
+    position: relative;
+    & span {
+        max-width: 70%;
+        display: inline-block;
+        line-height: 1.16;
+        color: variables.$grey;
+    }& img {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.2s ease-out;
+    }&.accordionActive {
+        max-height: 100%;
+        overflow: unset;
+        margin-bottom: 2rem;
+    }
+}
+
+.options-panel {
+    max-height: 0;
+    overflow: hidden; 
+    transition: max-height 0.2s ease-out; 
+}
+
+
+.option {
+    padding: 1.5rem;
+    background-color: variables.$cream;
+    color: variables.$dark-grey-blue;
+    border-radius: 0.5rem;
+    &:not(:last-of-type) {
+        margin-bottom: 1rem;
+    }& span {
+        display: inline-block;
+    }&.selected {
+        background-color: variables.$dark-cyan;
+        color: variables.$white;
+    }& .description {
+        line-height: 1.625rem;
+    }
+}
+
+@media only screen and (min-width: 420px) {
+    .accordion .heading-sm {
+        font-size: 2rem;
+        white-space: nowrap;
+    }
+    .options-panel {
+        display: flex;
+        justify-content: space-between;
+        & .option {
+           height: 15.5rem;
+           flex-basis: 0;
+           flex-grow: 1;
+           margin-right: 0.5rem;
+        }& .description {
+            margin-top: 2rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .selection-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 7rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    .select-your-coffee {
+        width: 65%;
+    }
+    .accordion .heading-sm {
+        font-size: 2.5rem;
+        white-space: nowrap;
+    }
+    .options-panel .option {
+        margin-right: 1rem;
+    }
+    .sidebar ul {
+        list-style: none;
+        font-family: 'Fraunces', serif;
+        font-size: 1.5rem;
+        & li {
+            margin-bottom: 2.5rem;
+            color: variables.$grey;
+            & span {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+    .option:hover {
+        background-color: variables.$pale-orange;
+    }
+    .option:target {
+        background-color: variables.$dark-cyan;
+    }
+}

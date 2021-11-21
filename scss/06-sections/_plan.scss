@@ -1,0 +1,62 @@
+@use '../01-abstracts/variables';
+
+.plan {
+    text-align: center;
+    background-image: url(/assets/plan/mobile/bg-steps.png);
+    color: variables.$light-cream;
+    padding: 5rem 6%;
+    border-radius: 0.5rem;
+    margin-bottom: 7.5rem;
+    & .steps {
+        margin-top: 0;
+    }& .step:last-of-type {
+        margin-bottom: 0;
+    }&.container-outer {
+        margin: 0;
+    }
+    .sidebar {
+        display: none;
+    }    
+}
+
+
+@media only screen and (min-width: 420px) and (max-width: 768px) {
+    .circle-steps {
+        background-image: url(/assets/plan/tablet/line.svg);
+        width: 500px;
+        height: 39px;
+        background-repeat: no-repeat;
+        margin-top: 2.125rem;
+    }
+    .plan {
+        text-align: left;
+        background-image: url(/assets/plan/tablet/bg-steps.png);
+        background-size: cover;
+        & .steps {
+            margin-top: 2.75rem;
+            margin-bottom: 6.25rem;
+        }
+    }
+    .sidebar {
+        display: none;
+    } 
+}
+
+@media only screen and (min-width: 900px) {
+    .plan.container-outer {
+        margin-left: 4.75rem;
+        margin-right: 4.75rem;
+        padding-top: 3.75rem;
+        padding-bottom: 3.75rem;
+    }
+    .plan .step {
+        text-align: left;
+    }
+    .plan .circle-steps {
+        width: 750px;
+        margin-bottom: 4.5rem;
+    }
+    .plan {
+        background-image: url(/assets/plan/desktop/bg-steps.png);
+    }
+}
