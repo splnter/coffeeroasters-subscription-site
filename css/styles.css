@@ -562,6 +562,7 @@ header {
     padding-left: 4.75%;
     padding-right: 4.75%;
     margin-bottom: 1.5rem;
+    margin-top: 2.5rem;
   }
 
   .toggle {
@@ -676,7 +677,7 @@ header {
     fill: #fdd6ba;
   }
 
-  .footer.plan {
+  .footer.plan-footer {
     margin-top: 28rem;
   }
 }
@@ -832,6 +833,7 @@ header {
 @media only screen and (min-width: 900px) {
   .hero-home {
     background-image: url(/assets/home/desktop/image-hero-coffeepress.jpg);
+    margin-bottom: 10rem;
   }
   .hero-home .btn {
     margin-left: 0;
@@ -845,13 +847,13 @@ header {
   .hero-plan {
     background-image: url(/assets/plan/desktop/image-hero-blackcup.jpg);
   }
-}
-.hero .container {
-  text-align: left;
-  width: 40%;
-  margin-left: 4rem;
-}
 
+  .hero .container {
+    text-align: left;
+    width: 40%;
+    margin-left: 4rem;
+  }
+}
 @media only screen and (min-width: 1400px) {
   .hero .heading-lg {
     font-size: 4.5rem;
@@ -909,7 +911,7 @@ header {
 
 @media only screen and (min-width: 421px) and (max-width: 768px) {
   .coffee-collection .heading-lg {
-    font-size: 4rem;
+    font-size: 12vw;
   }
 
   .coffee-collection .container {
@@ -934,9 +936,9 @@ header {
     z-index: 2;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 900px) {
   .coffee-collection .heading-lg {
-    font-size: 10rem;
+    font-size: 11vw;
     padding-bottom: 2.55rem;
   }
 

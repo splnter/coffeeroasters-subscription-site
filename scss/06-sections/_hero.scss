@@ -44,8 +44,6 @@
         & .container {
             width: 60%;
             margin-left: 3rem;
-
-
         }& .btn {
             margin-left: 0;
         }& .heading-lg {
@@ -69,6 +67,7 @@
 @media only screen and (min-width: 900px) {
     .hero-home {
         background-image: url(/assets/home/desktop/image-hero-coffeepress.jpg);
+        margin-bottom: 10rem;
         & .btn {
             margin-left: 0;
         }
@@ -80,13 +79,14 @@
     .hero-plan {
         background-image: url(/assets/plan/desktop/image-hero-blackcup.jpg);
     }
+    .hero .container {
+        text-align: left;
+        width: 40%;
+        margin-left: 4rem;
+    }
 }
 
-    .hero .container {
-            text-align: left;
-            width: 40%;
-            margin-left: 4rem;
-        }
+    
 
 
 @media only screen and (min-width: 1400px) {

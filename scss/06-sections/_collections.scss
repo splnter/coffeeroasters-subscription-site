@@ -43,7 +43,7 @@
 
 @media only screen and (min-width: 421px) and (max-width: 768px) {
     .coffee-collection .heading-lg {
-        font-size: 4rem;
+        font-size: 12vw;
     }
     
     .coffee-collection .container {
@@ -67,9 +67,9 @@
     }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 900px) {
     .coffee-collection .heading-lg {
-        font-size: 10rem;
+        font-size: 11vw;
         padding-bottom: 2.55rem;
     }
 
