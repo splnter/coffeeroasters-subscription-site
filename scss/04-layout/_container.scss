@@ -14,3 +14,15 @@
     margin-right: 4.75%;
   }
 }
+
+@media only screen and (min-width: 900px) {
+  .container {
+    width: clamp(890px, 88%, 1130px);
+  }
+}
+
+@media (min-width: 600px) {
+  .background .container {
+    width: min(460px, 88%);
+  }
+}

@@ -1,7 +1,7 @@
 @use '../01-abstracts/variables';
 
 .how-it-works {
-    margin-top: 41.8rem;
+    margin-top: 46rem;
     text-align: center;
     h4 {
         color: variables.$grey;
@@ -23,14 +23,80 @@
         margin-bottom: 5rem;
     }& p {
         font-size: 0.9375rem;
+        max-width: 350px;
+        margin: 0 auto;
     }& .number {
         font-family: 'Fraunces', serif;
         font-size: 4.5rem;
         color: variables.$pale-orange;
     }
+    .circle-steps {
+        display: none;
+    }
 }
 
-@media only screen and (min-width: 420px) and (max-width: 768px) {
+@media (min-width: 700px) {
+    .how-it-works {
+        margin-top: 30rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .how-it-works {
+        margin-top: 30rem;
+        margin-bottom: 10rem;
+        text-align: left;
+    }
+    .step p {
+        margin: 0;
+        width: 212px;
+    }
+    .steps {
+        display: flex;
+        gap: 2rem;
+    }
+    .step {
+        max-width: 212px;
+        height: 23rem;
+        flex: 1;
+    }
+    .step:last-of-type p{
+        padding-right: 10px;
+    }
+}
+
+@media (min-width: 900px) {
+    .steps {
+        gap: 5rem;
+    }
+    .step .heading-md {
+        font-size: 3.8ch;
+    }
+}
+
+@media (min-width: 1100px) {
+    .steps {
+        gap: 7rem;
+    }
+    .step p {
+        width: 260px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .how-it-works {
+        margin-top: 23rem;
+        margin-left: 3rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .how-it-works {
+        padding-left: 6.5rem;
+    }
+}
+
+/* @media only screen and (min-width: 560px) and (max-width: 768px) {
     .how-it-works {
         margin-top: 30rem;
         text-align: left;
@@ -61,9 +127,11 @@
         background-repeat: no-repeat;
         margin-top: 2.125rem;
     }
-}
+} */
 
-@media only screen and (min-width: 900px) {
+
+
+/* @media only screen and (min-width: 900px) {
     .how-it-works {
         margin-top: 25.8rem;
         text-align: left;
@@ -91,4 +159,4 @@
             font-size: 2rem;
         }
     }
-}
+} */

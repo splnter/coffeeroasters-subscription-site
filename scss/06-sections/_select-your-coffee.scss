@@ -102,10 +102,13 @@
         font-family: 'Fraunces', serif;
         font-size: 1.5rem;
         & li {
-            margin-bottom: 2.5rem;
-            color: variables.$grey;
+            margin-bottom: 1.5rem;
+            color: hsla(216, 17%, 21%, 40%);
             & span {
                 margin-right: 1.5rem;
+            }
+            &:hover {
+                color: hsla(216, 17%, 21%, 60%);
             }
         }
     }

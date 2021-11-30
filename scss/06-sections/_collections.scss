@@ -26,22 +26,97 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    /* border: 1px solid red; */
     & img {
         width: 70%;
+        max-width: 230px;
     }
     &:not(:last-of-type) {
-        margin-bottom: 4rem;
+        margin-bottom: 5rem;
     }
 }
 
+/* .sort > * {
+    border: 1px solid green;
+} */
+
 .sort-description {
     text-align: center;
+    max-width: 34ch;
     & h4 {
         margin-bottom: 0.9375rem;
     }
 }
 
-@media only screen and (min-width: 421px) and (max-width: 768px) {
+@media (min-width: 560px) {
+    .coffee-collection .container {
+        width: 100%;
+        position: relative;
+    }
+    .coffee-collection .heading-lg {
+        font-size: clamp(4rem, 11vw, 9.5rem); 
+    }   
+}
+
+@media (min-width: 640px) {
+    .sort {
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem!important;
+        width: clamp(560px, 80%, 95%);
+    }
+    .sort-description {
+        text-align: left;
+    }
+    .coffee-sorts {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+        margin-top: -5rem;
+        position: relative;
+        z-index: 2;
+    }
+    .sort img {
+        max-width: 250px;
+    }
+}
+
+@media (min-width: 960px) {
+    .coffee-sorts {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: -3rem;
+    }
+    .sort {
+        width: 50%;
+        flex-direction: column;
+    }
+    .sort-description {
+        text-align: center;
+    }
+    .break {
+        flex-basis: 100%;
+        height: 2rem;
+    }
+    .coffee-collection .heading-lg {
+        padding-bottom: 2.5rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .coffee-sorts {
+        flex-wrap: nowrap;
+    }
+    .sort {
+        max-width: 230px;
+    }
+    .break {
+        flex-basis: 0%;
+    }
+}
+
+
+/* @media only screen and (min-width: 560px) and (max-width: 1059px) {
     .coffee-collection .heading-lg {
         font-size: 12vw;
     }
@@ -52,10 +127,14 @@
     }
     .sort {
         flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem!important;
+        width: clamp(560px, 75%, 95%);
         &-description {
             text-align: left;
             margin-bottom: 3rem;
-            max-width: 32ch;
+            max-width: 32ch;           
         }
     }
     .coffee-sorts {
@@ -67,12 +146,7 @@
     }
 }
 
-@media only screen and (min-width: 900px) {
-    .coffee-collection .heading-lg {
-        font-size: 11vw;
-        padding-bottom: 2.55rem;
-    }
-
+@media only screen and (min-width: 1060px) {
     .coffee-sorts {
         display: flex;
         gap: 2rem;
@@ -84,7 +158,17 @@
         height: 20.5rem;
         margin-bottom: 0;
         &-description {
-            width: 90%;
+            max-width: 28ch;
         }
     }
+
 }
+
+@media only screen and (min-width: 900px) {
+    .coffee-collection .heading-lg {
+        font-size: clamp(6rem, 11vw, 9.5rem);
+        padding-bottom: 2.55rem;
+    }
+
+    
+} */

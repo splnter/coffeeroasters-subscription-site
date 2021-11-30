@@ -24,6 +24,9 @@
 .cards {
     position: absolute;
     top: 33%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
 }
 
 .card {
@@ -43,17 +46,73 @@
         width: 4.5rem;
     }
     &-wrapper {
-        width: 80%;
+        width: 85%;
         color: variables.$light-cream;
         text-align: center;
         margin-top: 2.3rem;
         & h5 {
             margin-bottom: 1.2rem;
+            font-size: min(6vw, 1.5rem);
         }
     }
 }
 
-@media only screen and (min-width: 420px) and (max-width: 768px) {
+@media (min-width: 560px) {
+    .card {
+       width: 400px; 
+    }
+}
+
+@media (min-width: 700px) {
+    .card {
+        width: 86%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: unset;
+        padding: 2.5rem;
+    }
+    .card-wrapper {
+        text-align: left;
+        margin-top: 0;
+        width: 74%;
+    }
+    .cards {
+        width: min(100%, 740px);
+        top: 44%;
+    }
+    .background {
+        height: 37.25rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .cards {
+        display: flex;
+        width: min(100%, 1100px);
+        gap: 2rem;
+        top: 56%
+    }
+    .card {
+        flex-direction: column;
+        height: 380px;
+        justify-content: space-between;
+        padding-top: 4.5rem;
+        padding-bottom: 3rem;
+    }
+    .card-wrapper {
+        text-align: center;
+        width: 100%;
+    }
+    .background {
+        height: 30.25rem;
+    }
+    .benefits .heading-md {
+        font-size: 2.5rem;
+    }
+}
+
+/* @media only screen and (min-width: 560px) {
     .card {
         flex-direction: row;
         justify-content: space-between;
@@ -77,6 +136,24 @@
     }
 }
 
+@media only screen and (min-width: 560px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .benefits .cards {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        top: 57%;  
+    }
+}
+
 @media only screen and (min-width: 900px) {
     .benefits .container {
         max-width: 40%;
@@ -84,7 +161,7 @@
             font-size: 2.5rem;
         }
     }
-    .benefits .cards {
+     .benefits .cards {
         display: flex;
         gap: 2rem;
         margin-left: 5rem;
@@ -103,4 +180,4 @@
         justify-content: space-between;
     }
   
-}
+} */

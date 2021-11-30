@@ -27,6 +27,7 @@
     & h1 {
         color: variables.$light-cream;
         margin-bottom: 1.5rem;
+        font-size: clamp(2rem, 9vw, 3.5rem);
     }
     & p {
         color: variables.$light-cream;
@@ -36,13 +37,13 @@
     }    
 }
 
-@media only screen and (min-width: 420px) and (max-width: 768px) {
+/* @media only screen and (min-width: 420px) and (max-width: 768px) {
     .hero {
         text-align: left;    
         align-items: center;
         padding-top: 0;
         & .container {
-            width: 60%;
+            
             margin-left: 3rem;
         }& .btn {
             margin-left: 0;
@@ -62,9 +63,52 @@
             }
         }
     }
+} */
+
+@media (min-width: 560px) {
+    .hero {
+        text-align: left;    
+        align-items: center;
+        padding-top: 0;
+    }
+    .hero .container {
+        width: max(22rem, 71%) ;
+        margin-left: 3rem;
+    }
+    .hero-home {
+        background-image: url(/assets/home/tablet/image-hero-coffeepress.jpg);
+    }
+    .hero p {
+        width: min(90%, 45ch);
+    }
+    .hero .btn {
+        margin-left: 0;
+    }
+    .hero h1 {
+        line-height: 1;
+    }
 }
 
-@media only screen and (min-width: 900px) {
+@media (min-width: 800px) {
+    .hero .container {
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 960px) {
+    .hero h1 {
+        font-size: clamp(3.5rem, 6vw, 4.5rem);
+        margin-bottom: 1.8rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .hero-home { 
+        background-image: url(/assets/home/desktop/image-hero-coffeepress.jpg);    
+    }
+}
+
+/* @media only screen and (min-width: 900px) {
     .hero-home {
         background-image: url(/assets/home/desktop/image-hero-coffeepress.jpg);
         margin-bottom: 10rem;
@@ -72,6 +116,12 @@
             margin-left: 0;
         }
     }
+
+    .hero .heading-lg {
+        font-size: max(5vw, 2.8rem);
+        line-height: max(3rem, 5vw);
+    }
+
     .hero-about {
         background-image: url(/assets/about/desktop/image-hero-whitecup.jpg);
         margin-bottom: 9.5rem;
@@ -90,14 +140,10 @@
 
 
 @media only screen and (min-width: 1400px) {
-    .hero .heading-lg {
-        font-size: 4.5rem;
-        line-height: 4.5rem;
-    }
     .hero p {
         width: 80%;
     }
     .hero-about h1 {
         font-size: 2.5rem;
     }
-}
+} */
