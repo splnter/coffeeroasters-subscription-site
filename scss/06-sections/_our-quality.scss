@@ -13,29 +13,47 @@
     & img {
         max-width: 100%;
         margin-top: -4.375rem;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
         border-radius: 0.5rem
     }& p {
         font-size: 0.9375rem;
         opacity: 0.8;
     }& h3 {
         margin-bottom: 1.5rem;
+        font-size: min(7vw, 1.75rem);
     }
 }
 
-@media only screen and (min-width: 420px) and (max-width: 768px) {
+@media (min-width: 560px) {
+   .our-quality .container {
+        width: unset;
+    }    
+    .our-quality {
+        padding-inline: 3rem;
+    }
+}
+
+@media (min-width: 768px) {
     .our-quality {
         background-image: url(/assets/about/tablet/bg-quality.png);
+        & h3 {
+            font-size: 2rem;
+        }
+    }
+    .our-quality .text-wrapper {
+        max-width: 850px;
+        margin-inline: auto;
     }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1280px) {
     .our-quality .container {
         background-image: url(assets/about/desktop/bg-quality.png);
         display: flex;
         justify-content: center;
         flex-direction: row-reverse;
         gap: 8rem;
+        max-width: 1050px;
         & .text-wrapper {
             width: 45%;
             margin-top: 5rem;
@@ -50,5 +68,6 @@
     }
     .our-quality {
         margin-bottom: 10.5rem;
+        padding-inline: 4rem;
     }
 }

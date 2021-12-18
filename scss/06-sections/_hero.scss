@@ -29,6 +29,9 @@
         margin-bottom: 1.5rem;
         font-size: clamp(2rem, 9vw, 3.5rem);
     }
+    &-about h1 {
+        font-size: clamp(2rem, 6vw, 2.5rem);  
+    }
     & p {
         color: variables.$light-cream;
         font-size: 0.9375rem;
@@ -78,6 +81,9 @@
     .hero-home {
         background-image: url(/assets/home/tablet/image-hero-coffeepress.jpg);
     }
+    .hero-plan {
+        background-image: url(/assets/plan/tablet/image-hero-blackcup.jpg);
+    }
     .hero p {
         width: min(90%, 45ch);
     }
@@ -96,7 +102,7 @@
 }
 
 @media (min-width: 960px) {
-    .hero h1 {
+    .hero-home h1 {
         font-size: clamp(3.5rem, 6vw, 4.5rem);
         margin-bottom: 1.8rem;
     }
@@ -105,6 +111,9 @@
 @media (min-width: 1280px) {
     .hero-home { 
         background-image: url(/assets/home/desktop/image-hero-coffeepress.jpg);    
+    }
+    .hero-plan {
+        background-image: url(/assets/plan/desktop/image-hero-blackcup.jpg)
     }
 }
 

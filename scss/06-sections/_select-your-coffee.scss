@@ -16,6 +16,10 @@
     margin-bottom: 5rem;
 }
 
+.frequency > span {
+    pointer-events: none;
+}
+
 .accordion {
     position: relative;
     & span {
@@ -36,7 +40,7 @@
     }
 }
 
-.options-panel {
+.options-container {
     max-height: 0;
     overflow: hidden; 
     transition: max-height 0.2s ease-out; 
@@ -57,10 +61,86 @@
         color: variables.$white;
     }& .description {
         line-height: 1.625rem;
+    }& .heading-sm {
+        display: block;
+        font-size: 1.45rem
+    }
+
+}
+
+.sidebar ul{
+    display: none;
+}
+
+@media (min-width: 560px) {
+    .options-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .option {
+        /* flex-basis: 0;
+        flex-grow: 1; */
+        margin-bottom: 0px!important;
+        padding-bottom: 2.5rem;
+        margin-left: 0px;
+    }
+    .select-your-coffee {
+        max-width: 540px; 
+        margin-inline: auto;
     }
 }
 
-@media only screen and (min-width: 420px) {
+@media (min-width: 768px) {
+    .accordion .heading-sm {
+        font-size: 2rem;
+        white-space: nowrap;
+    }
+    .options-container {
+        flex-direction: row;
+    }
+    .option {
+        height: 15.5rem;
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+    .select-your-coffee {
+        max-width: 760px;
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 1440px) {
+    .sidebar ul {
+        display: inline-block;
+        list-style: none;
+        font-family: 'Fraunces', serif;
+        font-size: 1.5rem;
+        & li {
+            margin-bottom: 1.5rem;
+            color: hsla(216, 17%, 21%, 40%);
+            & span {
+                margin-right: 1.5rem;
+            }
+            &:hover {
+                color: hsla(216, 17%, 21%, 60%);
+            }
+        }
+    }
+    .select-your-coffee {
+        max-width: auto;
+        margin-inline: unset;
+    }
+    .selection-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 7rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+
+/* @media only screen and (min-width: 420px) {
     .accordion .heading-sm {
         font-size: 2rem;
         white-space: nowrap;
@@ -112,10 +192,10 @@
             }
         }
     }
-    .option:hover {
+} */
+      .option:hover {
         background-color: variables.$pale-orange;
     }
     .option:target {
         background-color: variables.$dark-cyan;
     }
-}

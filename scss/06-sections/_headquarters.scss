@@ -55,3 +55,13 @@
        } 
    }
 }
+
+@media (min-width: 1280px) {
+    .headquarters h5 {
+        font-size: 2rem;
+    }
+    .headquarters .offices {
+        justify-content: space-between;
+        max-width: 1000px;
+    }
+}

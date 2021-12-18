@@ -3,6 +3,7 @@
 .plan {
     text-align: center;
     background-image: url(/assets/plan/mobile/bg-steps.png);
+    background-size: cover;
     color: variables.$light-cream;
     padding: 5rem 6%;
     border-radius: 0.5rem;
@@ -13,18 +14,41 @@
         margin-bottom: 0;
     }&.container-outer {
         margin: 0;
-    }
-    .sidebar {
-        display: none;
-    }    
-}
+        margin-bottom: 6.5rem;
+    } 
+}  
 
 .circle-steps {
     display: none;
 }
 
+@media (min-width: 560px) {
+    .plan {
+        background-image: url(/assets/plan/tablet/bg-steps.png);
+    }
+}
 
-@media only screen and (min-width: 420px) and (max-width: 768px) {
+@media (min-width: 768px) {
+    .steps {
+        display: flex;
+    }
+    .plan {
+        text-align: left;
+    }
+}
+
+@media (min-width: 1280px) {
+    .plan {
+        background-image: url(/assets/plan/desktop/bg-steps.png);
+    }
+    .plan.container-outer {
+        margin-left: 4.75%;
+        margin-right: 4.75%;
+    }
+}
+
+
+/* @media only screen and (min-width: 420px) and (max-width: 768px) {
     .circle-steps {
         background-image: url(/assets/plan/tablet/line.svg);
         width: 500px;
@@ -63,4 +87,4 @@
     .plan {
         background-image: url(/assets/plan/desktop/bg-steps.png);
     }
-}
+} */

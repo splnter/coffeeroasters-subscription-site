@@ -44,7 +44,28 @@
     }
 }
 
-@media only screen and (min-width: 900px) {
+.order-summary {
+    max-width: 540px; 
+    margin-inline: auto;
+}
+
+.order-summary .container {
+    width: 88%;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .order-summary {
+        max-width: 760px;
+        margin-inline: auto;
+    }
+}
+
+
+
+
+
+@media only screen and (min-width: 1440px) {
     .order-summary {
         width: calc(65% - 6rem);
         position: absolute;

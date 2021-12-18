@@ -1,4 +1,11 @@
-/* Animate the mobile Nav */
+/* MOBILE NAVIGATION */
+
+//Function: Disable scroll
+const disableScroll = () => {
+    const pageBody = document.querySelector('body');
+    pageBody.classList.toggle('preventScroll');
+}
+
 const toggle = document.querySelector('.toggle');
 toggle.addEventListener('click', () => {
     const mainNavigation = document.querySelector('.main-navigation');
@@ -8,218 +15,246 @@ toggle.addEventListener('click', () => {
     hamburgerOpen.classList.toggle('mobile-nav-open');
     hamburgerClose.classList.toggle('mobile-nav-open');
 
-    preventScroll();
+    disableScroll();
 });
 
-function preventScroll() {
-    const pageBody = document.querySelector('body');
-    pageBody.classList.toggle('preventScroll');
+/* ACCORDION BEHAVIOR */
 
+//Add event listener to the accordions
+const interactiveAccordions = () => {
+const accordions = document.querySelectorAll('.accordion');
+    accordions.forEach(accordion => {
+        accordion.addEventListener('click', () => {
+
+            //Spin the arrow when the accordion is clicked
+            accordion.classList.toggle('accordionActive');
+            accordion.parentElement.classList.toggle('accordionActive');
+
+            //Expand/collaps the options-container when the accordion is clicked
+            const optionsContainer = accordion.nextElementSibling;
+            if(optionsContainer.style.maxHeight) {
+                optionsContainer.style = null;
+            } else {
+                optionsContainer.style.maxHeight = optionsContainer.scrollHeight + 'px';
+            }
+
+        })    
+    })
+};
+
+interactiveAccordions();
+
+/* COFFE COLLECTION OPTIONS */
+
+//Function: Change color of the card on click
+ const changeCardColor = (option) => {
+    const optionsContainer = option.parentElement;
+    const siblingCards = Array.from(optionsContainer.children);
+    
+    siblingCards.forEach(sibling => {
+        sibling.classList.remove('selected');
+    })
+    option.classList.add('selected');
 }
 
-/* Animate the accordion */
+//Function: Print the selected options to the order summary section
+const saveSelectedOption = (option) => { 
 
-const accordions = document.querySelectorAll('.accordion')
-accordions.forEach(accordion => {
-    accordion.addEventListener('click', () => {
-        const accordionWrapper = accordion.parentElement;
-        accordionWrapper.classList.toggle('accordionActive')
-        accordion.classList.toggle('accordionActive');
-        const panel = accordion.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + 'px';
-        }     
-    })
-    
-})
+    //Save the heading of the clicked card
+    const cardHeading = option.firstElementChild.innerText;
 
-/* Build summary text */
+    //Select elements related to the accordion of grinding options
+    const grindAccordion = document.getElementById('grindHeading');
+    const grindOption = document.getElementById('hideGrindOption')
+    const grindWrapper = document.getElementById('grind-option');
+    const grindWrapperFirstChild = grindWrapper.firstElementChild;
+    const sibling = grindWrapperFirstChild.nextElementSibling;
+    const grindAlts = Array.from(document.querySelectorAll('[data-option-selected="grindOption"]'));
 
-const options = document.querySelectorAll('.option');
-let userPreference;
-let userBeanType;
-let userQuantity;
-let userGrindOption; 
-let userFrequency;
 
-options.forEach(option => {
-    option.addEventListener('click', () => { 
+    //Fetch the selected coffee option
+    const coffeeType = document.getElementById('order-preference').textContent;
 
-        //Update the background color of the clicked option
-        const parent = option.parentElement
-        const children = Array.from(parent.children)
-        children.forEach(child => {
-            child.classList.remove('selected')
-        })   
-        option.classList.add('selected');
+    //Get the id from the wrapper of the clicked card
+    const wrapperId = option.closest('.accordion-wrapper').id;
 
-        //Get the data-attribute of the clicked option
-        dataAttr = option.dataset.optionSelected
+    //Prepend 'order-' to the wrapperId to target the ID in the order description
+    const modifiedId = 'order-' + wrapperId;
 
-        //Get the heading of the clicked option
-        const heading = option.firstElementChild.textContent
-
+    if(cardHeading === 'Capsule') {
         
-        //Use the dataAttr and heading to determine which option was clicked -> assign heading to different
-        //variable depending on the clicked option
-            if(dataAttr === 'preference') {
-                if(heading === 'Capsule') {
-                    const dataAttribute = dataAttr.toString()
-                    const grindHeading = document.getElementById('grindHeading').style.color = "hsla(215, 5%, 54%, 49%)";
-                    const grindHeadingTwo = document.getElementById('grindHeading').parentElement;
-                    grindHeadingTwo.style.pointerEvents = "none";
-                    document.getElementById(dataAttribute).classList.add('hidePlaceHolder');
-                    document.getElementById('preference').textContent = `${heading}`; 
-                    document.getElementById('asOrUsing').textContent = `using `; 
-                    document.getElementById('hideGrindOption').style.display = "none";
-                }
-                if(heading != 'Capsule') {
-                    const dataAttribute = dataAttr.toString()
-                    const grindHeading = document.getElementById('grindHeading').style.color = "hsl(215, 5%, 54%)";
-                    const grindHeadingTwo = document.getElementById('grindHeading').parentElement;
-                    grindHeadingTwo.style.pointerEvents = "auto";
-                    document.getElementById(dataAttribute).classList.add('hidePlaceHolder');
-                    document.getElementById('preference').textContent = `${heading}`; 
-                    document.getElementById('asOrUsing').textContent = `as `; 
-                    document.getElementById('hideGrindOption').style.display = "inline";
-                }
-        } else if(dataAttr === 'beanType'){
-            const dataAttribute = dataAttr.toString()
-            document.getElementById(dataAttribute).classList.add('hidePlaceHolder'); 
-            document.getElementById('beanType').textContent = `${heading}`;
+        //Disable the grind options accordion
+        grindAccordion.parentElement.style.pointerEvents = 'none';
+        grindAccordion.style.color = "hsla(215, 5%, 54%, 49%)";
+        sibling.style.maxHeight = null;
 
-        } else if(dataAttr === 'quantity'){
-            const dataAttribute = dataAttr.toString()
-            document.getElementById(dataAttribute).classList.add('hidePlaceHolder');
-            document.getElementById('quantity').textContent = `${heading}`;
+        //Collaps the grind options accordion
+        grindWrapper.classList.remove('accordionActive');
+        grindWrapperFirstChild.classList.remove('accordionActive');
 
-        } else if(dataAttr === 'grindOption'){
-            const dataAttribute = dataAttr.toString()
-            document.getElementById(dataAttribute).classList.add('hidePlaceHolder');
-            document.getElementById('grindOption').textContent = `${heading}`;
+        //Remove the grind option span in the order description
+        grindOption.style.display = 'none';
 
-        } else if(dataAttr === 'frequency'){
-            const dataAttribute = dataAttr.toString()
-            document.getElementById(dataAttribute).classList.add('hidePlaceHolder');
-            document.getElementById('frequency').textContent = `${heading}`;
+        //Change from "as" to "using" in the order description 
+        document.getElementById('asOrUsing').textContent = `using `;
+
+        //Print the selected coffe type (Capsule) to the order description
+        document.getElementById(modifiedId).classList.add('hidePlaceHolder');
+        document.getElementById(modifiedId).innerText = cardHeading;
+
+    } else {
+        //Use the wrapper id as input for removing the placeholder class and print the headline of the clicked card 
+            document.getElementById(modifiedId).classList.add('hidePlaceHolder');
+            document.getElementById(modifiedId).innerText = cardHeading; 
+            if(coffeeType === 'Capsule' && cardHeading === 'Filter' || cardHeading === 'Espresso') {
+
+                document.getElementById('asOrUsing').textContent = `as `;
+                grindOption.style.display = 'inline'; 
+                 //Enable the grind options accordion
+                grindAccordion.parentElement.style.pointerEvents = 'auto';
+                grindAccordion.style.color = "hsl(215, 5%, 54%)";
+                grindAlts.forEach(grindAlt => {
+                    if(cardHeading === 'Filter' || cardHeading === 'Espresso' && grindAlt.classList.contains('selected')) {
+                        sibling.style.maxHeight = sibling.scrollHeight + 'px'; 
+                        grindWrapper.classList.add('accordionActive');
+                    grindWrapperFirstChild.classList.add('accordionActive');
+                    grindAccordion.parentElement.style.pointerEvents = 'auto';
+                    grindAccordion.style.color = "hsl(215, 5%, 54%)";   
+                    }
+                })               
+            } 
+        }       
+
+        //Nested Function: Print prices per shipment to the frequency cards - prices are based on the weight of the selected coffee bag
+        const showPricesPerShipment = () => {
+        if(wrapperId === 'quantity') {
+
+            const weeklyDelivery = document.getElementById('pricePerWeek');
+            const biWeeklyDelivery = document.getElementById('pricePerTwoWeeks');
+            const monthlyDelivery = document.getElementById('pricePerMonth');
+
+            //Evaluate and print the price depending on the weight selected
+            if(cardHeading == '250g') {
+                weeklyDelivery.innerHTML = '7.20';
+                biWeeklyDelivery.innerHTML = '9.60';
+                monthlyDelivery.innerHTML = '12.00'
+            } else if(cardHeading == '500g') {
+                weeklyDelivery.innerHTML = '13.00';
+                biWeeklyDelivery.innerHTML = '17.50';
+                monthlyDelivery.innerHTML = '22.00'
+            } else if(cardHeading == '1000g') {
+                weeklyDelivery.innerHTML = '22.00';
+                biWeeklyDelivery.innerHTML = '32.00';
+                monthlyDelivery.innerHTML = '42.00';
+            }
         }
-
-    })
-})
-
-document.getElementById('btn-order').addEventListener('click', () => {
-
-    priceForModal()
-})
-
-function modalMessage () {
-    const message = document.getElementById('order-description').innerHTML;
-    const messageDestination = document.getElementById('orderMessage');
-    
-    messageDestination.innerHTML = message; 
-
-    
-}
-
-function showPrice() {
-    const quantitySelected = document.getElementById('quantity').textContent
-    console.log(quantitySelected)
-    const everyWeekDelivery = document.getElementById('pricePerWeek');
-    const everyTwoWeekDelivery = document.getElementById('pricePerTwoWeeks');
-    const everyMonthDelivery = document.getElementById('pricePerMonth');
-
-    if(quantitySelected == '250g') {
-        everyWeekDelivery.innerHTML = '7.20';
-        everyTwoWeekDelivery.innerHTML = '9.60';
-        everyMonthDelivery.innerHTML = '12.00'
-    } else if(quantitySelected == '500g') {
-        everyWeekDelivery.innerHTML = '13.00';
-        everyTwoWeekDelivery.innerHTML = '17.50';
-        everyMonthDelivery.innerHTML = '22.00'
-    } else if(quantitySelected == '1000g') {
-        everyWeekDelivery.innerHTML = '22.00';
-        everyTwoWeekDelivery.innerHTML = '32.00';
-        everyMonthDelivery.innerHTML = '42.00';
     }
+//Call the nested function
+showPricesPerShipment()
+
 }
 
-function priceForModal() {
-    const price = parseFloat(document.querySelector('.selected[data-option-selected="frequency"] .price').textContent)
-    const heading = document.querySelector('.selected[data-option-selected="frequency"] .heading-sm').textContent
-    let modalPrice = document.getElementById('modal-price');
-    let newPrice;
-    if(heading == 'Every week') {
-        newPrice = price * 4
-        modalPrice.textContent = newPrice.toFixed(2)
-    } else if(heading == 'Every 2 weeks') {
-        newPrice = price * 2
-        modalPrice.textContent = newPrice.toFixed(2)
-    } else if(heading == 'Every month') {
-        newPrice = price 
-        modalPrice.textContent = newPrice.toFixed(2)
-    }
+
+
+//Function: Calc order total
+const orderTotal = () => { 
+    const deliveryIntervals = document.querySelectorAll("[data-option-selected=frequency]")
+    deliveryIntervals.forEach(option => {
+        
+        if(option.classList.contains('selected')) {
+            const pricePerShipment = parseFloat(document.querySelector('.selected.frequency .price').innerText);
+            let priceToPrintToModal = document.getElementById('modal-price');
+            let orderValue; 
+            const interval = option.firstElementChild.innerText;
+            if (interval === 'Every week') {
+                orderValue = pricePerShipment * 4;
+                priceToPrintToModal.textContent = orderValue.toFixed(2);
+                console.log(priceToPrintToModal);
+            } else if (interval === 'Every 2 weeks') {
+                orderValue = pricePerShipment * 2;
+                priceToPrintToModal.textContent = orderValue.toFixed(2);
+                console.log(priceToPrintToModal);
+            } else if (interval === 'Every month') {
+                orderValue = pricePerShipment;
+                priceToPrintToModal.textContent = orderValue.toFixed(2);
+                console.log(priceToPrintToModal);
+            }
+            //Call the function when there's a price to display
+            
+            displayOrderInModal();
+        }
+    })
 }
 
-const sizeOfOrder = document.querySelectorAll('.quantity')
-sizeOfOrder.forEach(card => {
-    card.addEventListener('click', () => {
-        showPrice()
-        priceForModal()
-    })
-})
-
-const frequencyOfDelivery = document.querySelectorAll('.frequency')
-frequencyOfDelivery.forEach(card => {
-    card.addEventListener('click', () => {
-        priceForModal()
-    })
-})
-
-
-
-function buildOrderButton() {
-    const buttonDiv = document.getElementById('button-wrapper');
+const constructOrderButton = () => {
+    const placeOrderWrapper = document.getElementById('button-wrapper');
     const innerViewportWidth = window.innerWidth
-    let button;
+    let placeOrderButton;
     if(innerViewportWidth >= 768) {
-        button = '<p class="order-price">$<span id="modal-price">14.00</span> / mo</p>';
-        button += '<button class="btn" id="checkout">Checkout</button>';
-        buttonDiv.innerHTML = button;
+        placeOrderButton = '<p class="order-price">$<span id="modal-price">14.00</span> / mo</p>';
+        placeOrderButton += '<button class="btn" id="checkout">Checkout</button>';
+        placeOrderWrapper.innerHTML = placeOrderButton;
     } else if(innerViewportWidth < 768) {
-        button = '<button class="btn" id="checkout">Checkout - $<span id="modal-price">14.00</span> / mo</button>'
-        buttonDiv.innerHTML = button;
+        placeOrderButton = '<button class="btn" id="checkout">Checkout - $<span id="modal-price">14.00</span> / mo</button>'
+        placeOrderWrapper.innerHTML = placeOrderButton;
     }
+
     
+}
+//MODAL 
+const displayOrderInModal = () => {
+    const message = document.getElementById('order-description').innerHTML;
+    const messagePlaceholder= document.getElementById('orderMessage');
+    
+    messagePlaceholder.innerHTML = message;    
+}
+
+const showModal = () => {
+const modal = document.querySelector('.modal');
+modal.style.display = 'flex';
+
+disableScroll()
 }
 
 
-document.getElementById('btn-order').addEventListener('click', () => {
-    buildOrderButton()
-    modalMessage()
-    priceForModal()
-    preventScroll()
 
+//Add a click eventlistener to each of the cards
+const cards = document.querySelectorAll('.option');
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+
+        //Change color of the card on click
+        changeCardColor(card);
+        //Update the order summary text with the user's order details
+        saveSelectedOption(card); 
+    })
 })
 
 
-/*Clean up scripts 
+document.getElementById('btn-order').addEventListener('click', () => {
+    showModal();
+    constructOrderButton();
+    orderTotal();
 
-- try writing function expressions instead of declarations - arrange for hoisting
-- test if the price can be calculated with something that more resembles a shopping cart - > push to array
-- which variables could benefit from a global scope?
-- make functions return something and store that in a new variable?
-- add comments
-- improve naming convention - > e.g. function names, variables and should classes and ids use camel case 
-in the html if they are intended for JS
+});
 
-*/
-    /*page = document.querySelector('body');
-    
+document.querySelector('.modal').addEventListener('click', () => {
+    const modal = document.querySelector('.modal');
+    modal.style.display = "none";
+    disableScroll();
+})    
 
-    function logEvent(event) {
-        console.log(event.target)
-    }
+document.querySelector('#checkout').addEventListener('click', () => {
+    const modal = document.querySelector('.modal');
+    modal.style.display = "none";
+    disableScroll();
+})
 
-    page.addEventListener('click', logEvent); */
+
+
+//Improvements:
+//Only update the price in the modal on button click
+//Assign the value from orderTotal() to a variable and use in another function
+//OR at least only write this: priceToPrintToModal.textContent = orderValue.toFixed(2); once within orderTotal()
+//Write with less code 
+//Better naming convention & comments
